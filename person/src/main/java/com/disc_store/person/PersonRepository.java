@@ -1,0 +1,9 @@
+package com.disc_store.person;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+@Repository		// injecting db methods to the class
+public interface PersonRepository extends JpaRepository<Person, Long>{
+	
+}
