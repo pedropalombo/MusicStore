@@ -2,11 +2,13 @@ package com.disc_store.order;
 
 import java.util.List;
 
+import jakarta.persistence.CollectionTable;
+import jakarta.persistence.Column;
 import jakarta.persistence.ElementCollection;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.Table;
 
 @Entity
@@ -17,11 +19,19 @@ public class Order {
     @GeneratedValue
     private Long id;
 
+    @Column(name="customer_id")
     private Long customerId;
 
+    // for joins
     @ElementCollection
+    @CollectionTable(
+        name = "order_list_of_cds",
+        joinColumns = @JoinColumn(name = "order_id")
+    )
+    @Column(name = "disc_id")
     private List<Long> listOfCds;
 
+    @Column(name="total_price")
     private Double totalPrice;
 
     // empty constructor for Spring to use

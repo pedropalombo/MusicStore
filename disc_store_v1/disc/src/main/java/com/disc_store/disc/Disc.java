@@ -1,5 +1,6 @@
 package com.disc_store.disc;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
@@ -10,37 +11,70 @@ import jakarta.persistence.Table;
 public class Disc {
 
 	@Id
-    @GeneratedValue
-    private Long id;
+	@GeneratedValue
+	private Long id;
 
-    private String name;
-    private String author;
-    private String genre;
-    private Double price;
+	@Column(name = "name")
+	private String name;
 
-    // Constructors
-    public Disc() {}
+	@Column(name = "author")
+	private String author;
 
-    public Disc(String name, String author, String genre, Double price) {
-        this.name = name;
-        this.author = author;
-        this.genre = genre;
-        this.price = price;
-    }
+	@Column(name = "genre")
+	private String genre;
 
-    // Getters and setters
-    public Long getId() { return id; }
-    public void setId(Long id) { this.id = id; }
+	@Column(name = "price")
+	private Double price;
 
-    public String getName() { return name; }
-    public void setName(String name) { this.name = name; }
+	// empty constructor for Spring
+	public Disc() {
+	}
 
-    public String getAuthor() { return author; }
-    public void setAuthor(String author) { this.author = author; }
+	public Disc(String name, String author, String genre, Double price) {
+		this.name = name;
+		this.author = author;
+		this.genre = genre;
+		this.price = price;
+	}
 
-    public String getGenre() { return genre; }
-    public void setGenre(String genre) { this.genre = genre; }
+	// Getters and setters
+	public Long getId() {
+		return id;
+	}
 
-    public Double getPrice() { return price; }
-    public void setPrice(Double price) { this.price = price; }
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getAuthor() {
+		return author;
+	}
+
+	public void setAuthor(String author) {
+		this.author = author;
+	}
+
+	public String getGenre() {
+		return genre;
+	}
+
+	public void setGenre(String genre) {
+		this.genre = genre;
+	}
+
+	public Double getPrice() {
+		return price;
+	}
+
+	public void setPrice(Double price) {
+		this.price = price;
+	}
 }

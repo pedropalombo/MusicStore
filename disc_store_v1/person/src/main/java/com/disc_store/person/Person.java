@@ -1,14 +1,12 @@
 package com.disc_store.person;
 
 import java.math.BigDecimal;
-import java.util.List;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
-import jakarta.validation.constraints.Email;
 
 @Entity(name = "person")
 @Table(name="persons")
@@ -18,8 +16,10 @@ public class Person {
     @GeneratedValue
     private Long id;
 
+	@Column(name="name")
     private String name;
 
+	@Column(name="cashback_total")
     private BigDecimal cashbackTotal;
 
 
